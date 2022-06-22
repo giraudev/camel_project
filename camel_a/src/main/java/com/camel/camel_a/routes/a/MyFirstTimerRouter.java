@@ -11,6 +11,9 @@ public class MyFirstTimerRouter  extends RouteBuilder{
 	
 	@Autowired
 	private GetCurrentTimeBean getCurrentTimeBean;
+	
+	@Autowired
+	private SimpleLoggingProcessingComponent loggerComponent; 
 
 	@Override
 	public void configure() throws Exception {
@@ -21,6 +24,7 @@ public class MyFirstTimerRouter  extends RouteBuilder{
 		.log("${body}")
 		.bean(getCurrentTimeBean, "getCurrentTime")
 		.log("${body}")
+		.bean(loggerComponent)
 		.to("log:first-timer");
 		
 		// using localDate		
