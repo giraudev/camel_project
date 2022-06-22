@@ -16,7 +16,7 @@ public class MyFirstTimerRouter  extends RouteBuilder{
 	public void configure() throws Exception {
 		
 		from("timer:first-timer")
-		.bean("getCurrentTimeBean")
+		.bean(getCurrentTimeBean, "getCurrentTime")
 		.to("log:first-timer");
 		
 		// using localDate		
