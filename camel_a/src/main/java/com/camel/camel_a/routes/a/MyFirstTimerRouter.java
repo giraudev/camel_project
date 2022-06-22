@@ -15,8 +15,12 @@ public class MyFirstTimerRouter  extends RouteBuilder{
 	@Override
 	public void configure() throws Exception {
 		
+		//ideal usar o nome do bean, caso exista mais de 1 na clasee
+		
 		from("timer:first-timer")
+		.log("${body}")
 		.bean(getCurrentTimeBean, "getCurrentTime")
+		.log("${body}")
 		.to("log:first-timer");
 		
 		// using localDate		
