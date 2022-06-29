@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class GetCurrentTimeBean {
 	
 	// Crianfo um bean para router
