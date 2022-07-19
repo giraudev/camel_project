@@ -10,8 +10,11 @@ public class RestApiConsumerRouter extends RouteBuilder{
 		restConfiguration().host("localhost").port(8000);
 		
 		from("timer:rest-api-consumer?period=10000")
+		.setHeader("from", ()->"EUR")
+		.setHeader("to", ()->"INR")
 		.log("${body}")
-		.to("rest:get:/currency-exchange/from/EUR/to/INR");
+		.to("rest:get:/currency-exchange/from/{from}/to/{to}")
+		.log("${body}");
 	}
 
 }
